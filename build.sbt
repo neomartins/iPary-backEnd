@@ -1,4 +1,4 @@
-name := """play-heroku-seed"""
+name := """iParty"""
 
 version := "1.0-SNAPSHOT"
 

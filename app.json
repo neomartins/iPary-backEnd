@@ -1,8 +1,7 @@
 {
-  "name": "play-heroku-seed",
-  "description": "Seed app for Play, Heroku and Postgres with demo CRUD model, view, controller.",
-  "repository": "https://github.com/mkbehbehani/play-heroku-seed",
-  "addons": ["heroku-postgresql:hobby-dev", "papertrail"],
+  "name": "iParty",
+  "description": "Find the best parties .",
+  "repository": "https://github.com/neomartins/iPartyBackEnd",
   "success_url": "/",
   "keywords": ["play", "scala", "postgresql", "slick"]
 }
