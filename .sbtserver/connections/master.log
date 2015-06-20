@@ -5,3 +5,6 @@ New client attempting to connect on port: 34747-43247
 This client on port 34747 has uuid d518d226-67b3-4bd2-b9f8-028f666f2ba6 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
 Connected Clients: activator-d518d226-67b3-4bd2-b9f8-028f666f2ba6
 Taking next connection to: 43247
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 43247
