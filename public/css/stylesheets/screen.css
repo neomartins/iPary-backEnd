@@ -1,0 +1,81 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline;}
+
+body, html {width: 100%; height: auto; font-family: 'Open Sans', FontAwesome;}
+
+.body-img {background: url(/img/carrousel-1.jpg);}
+.basic-text {color: #fff;}
+.basic-text:hover {color: #499bea;}
+h2 {font-size: 22px; font-weight: bold; margin-bottom: 15px;}
+
+.mb-15{margin-bottom: 15px;}
+
+/*LOGIN*/
+.login-cad-container {margin-top: 20px}
+
+.login-cad-container .panel {background: rgba(19,19,19,0.7); border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border: 0px solid #000000; -webkit-box-shadow: 0px 9px 5px 3px rgba(0,0,0,0.75); -moz-box-shadow: 0px 9px 5px 3px rgba(0,0,0,0.75); box-shadow: 0px 9px 5px 3px rgba(0,0,0,0.75); }
+
+.login-cad-container .panel-heading a:hover, .login-cad-container .panel-heading a:focus {text-decoration: none;}
+.login-cad-container .panel-heading a span {text-align: center;  display: block; height: 40px; font-size: 24px; color: #fff; background: none; border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border: 0px solid #fff; }
+.login-cad-container .panel-heading a span:hover {color: #499bea;}
+.login-cad-container .panel-heading .active span {background: #222;}
+
+.login-cad-container .panel-body .login-input-group {height: 40px; font-size: 22px; font-weight: bold;}
+
+.login-cad-container .panel-body .btn-submit {height: 40px; background: #222; font-size: 22px; color: #fff; line-height: 50%;}
+
+.login-cad-container .panel-body label {margin-top: 5px; color: #fff;}
+
+/*TELA ADMINISTRATIVA*/
+.top-nav {padding: 0 15px;}
+.top-nav>li {display: inline-block; float: left;}
+
+/*MENU DO USUARIO DIREITO*/
+.top-nav>li>a {padding-top: 15px; padding-bottom: 15px; line-height: 20px; color: #999;}
+.top-nav>li>a:hover, .top-nav>li>a:focus, .top-nav>.open>a, .top-nav>.open>a:hover, .top-nav>.open>a:focus {color: #fff; background-color: #000;}
+
+/*ALERTA DROPDOWN MENU*/
+.top-nav>.open>.dropdown-menu {float: left; position: absolute; margin-top: 0; border: 1px solid rgba(0,0,0,.15); border-top-left-radius: 0; border-top-right-radius: 0; background-color: #fff; -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175); box-shadow: 0 6px 12px rgba(0,0,0,.175);}
+.top-nav>.open>.dropdown-menu>li>a {white-space: normal;}
+ul.message-dropdown {padding: 0; max-height: 250px; overflow-x: hidden; overflow-y: auto;}
+li.message-preview {width: 275px; border-bottom: 1px solid rgba(0,0,0,.15);}
+li.message-preview>a {padding-top: 15px; padding-bottom: 15px;}
+li.message-footer {margin: 5px 0;}
+ul.alert-dropdown {width: 200px;}
+
+/*BARRA LATERAL ESQUERDA*/
+
+.side-nav>li>ul {padding: 0;}
+.side-nav>li>ul>li>a {display: block; padding: 10px 15px 10px 38px; text-decoration: none; color: #999;}
+.side-nav>li>ul>li>a:hover {color: #fff;}
+
+/*CONTEUDO DA PAGINA*/
+.conteudo-container {margin-left: 230px; margin-top: 55px; padding-bottom: 20px;}
+
+/*PAGINA DE CADASTRO DE EVENTO*/
+.cadevent-header {font-size: 28px;}
+.cadevent-input {margin-bottom: 15px;}
+.cadevent-input span, .cadevent-input input, .cadevent-input button {height: 45px;}
+.mult-input input:second-child { border-radius: 5px 10px 15px 20px}
+
+/*PAGINA DE LISTAGEM DE EVENTOS*/
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+.tg td {font-size:14px; padding:10px 5px; border-style:solid; border-width:1px; overflow:hidden; word-break:normal; border-color:#ccc; color:#333; background-color:#fff;}
+.tg th {font-size:14px; font-weight:normal; padding:10px 5px; border-style:solid; border-width:1px; overflow:hidden; word-break: normal; border-color:#ccc; color:#333; background-color:#f0f0f0;}
+.tg .tg-s6z2{text-align:center}
+.btn-style.btn-warning a {color: #fff; text-decoration: none;}
+
+/*CALENDARIO*/
+
+#calendar {max-width: 900px; margin: 0 auto;}

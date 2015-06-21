@@ -45,8 +45,8 @@ object NightClubs {
       true
     } else {false}
   }
-  def find(emailId: String): NightClub = db.withSession{ implicit session =>
-    nightclubs.filter(_.email === emailId).first
+  def find(emailId: String, pass: String): NightClub = db.withSession{ implicit session =>
+    nightclubs.filter(_.email === emailId).filter(_.password === pass).first
   }
   def update(updateNightCLub: NightClub): Int = db.withTransaction{ implicit session =>
     nightclubs.filter(_.email === updateNightCLub.email).update(updateNightCLub)

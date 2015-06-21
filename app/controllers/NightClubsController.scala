@@ -45,8 +45,8 @@ object NightClubsController extends Controller{
     )
   }
 
-  def find(email: String) = Action(parse.empty) { implicit request =>
-    NightClubs find(email) match {
+  def find(email: String, pass: String) = Action(parse.empty) { implicit request =>
+    NightClubs find(email,pass) match {
       case club => Ok(Json.toJson(club))
       case _ => NotFound("There is no driver with the given id")
     }
