@@ -14,3 +14,10 @@ GET     /nightclub/:email/:pass     controllers.NightClubsController.find(email:
 POST    /nightclub                  controllers.NightClubsController.update
 PUT     /nightclub                  controllers.NightClubsController.create
 DELETE  /nightclub/:email           controllers.NightClubsController.delete(email: String)
+
+
+GET     /event                 controllers.EventController.list
+GET     /event/:name           controllers.EventController.find(name: String)
+POST    /event                 controllers.EventController.update
+PUT     /event                 controllers.EventController.create
+DELETE  /event/:name           controllers.EventController.delete(name: String)

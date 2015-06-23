@@ -1,6 +1,6 @@
 package models
 
-import java.util.Date
+import java.sql.Date
 
 import scala.slick.driver.PostgresDriver
 import scala.slick.driver.PostgresDriver.simple._
@@ -21,10 +21,10 @@ case class Event(
 
 class Events(tag: Tag) extends Table[Event](tag,"event"){
   def name = column[String]("name", O.PrimaryKey)
-  def date = column[String]("date", O.NotNull)
-  def clientMax = column[String]("clientMax", O.NotNull)
-  def maleTicket = column[String]("maleTicket", O.NotNull)
-  def femaleTicket = column[String]("femaleTicket", O.NotNull)
+  def date = column[Date]("event_date", O.NotNull)
+  def clientMax = column[Int]("clientMax", O.NotNull)
+  def maleTicket = column[Int]("maleTicket", O.NotNull)
+  def femaleTicket = column[Int]("femaleTicket", O.NotNull)
   def description = column[String]("description")
   def style = column[String]("style")
 

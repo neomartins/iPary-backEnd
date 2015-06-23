@@ -10,7 +10,7 @@ import play.api.libs.concurrent.Execution.Implicits.defaultContext
 /**
  * Created by henrique on 23/06/15.
  */
-class EventController extends Controller {
+object EventController extends Controller {
 
   implicit val writes = Json.writes[Event]
   implicit val reads = Json.reads[Event]
@@ -20,10 +20,10 @@ class EventController extends Controller {
   val eventForm = Form(
     mapping(
       "name" -> text,
-      "date" -> date("yyyy-MM-dd"),
-      "clientMax" -> of[Int],
-      "maleTicket" ->  of[Int],
-      "femaleTicket" -> of[Int],
+      "date" -> sqlDate,
+      "clientMax" -> number,
+      "maleTicket" ->  number,
+      "femaleTicket" -> number,
       "description" -> optional(text),
       "style" -> optional(text)
     )(Event.apply)(Event.unapply)
