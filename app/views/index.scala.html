@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>My AngularJS App</title>
+	<title>iParty</title>
 	<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("img/favicon.png")">
 
     <!--Bootstrap CSS-->
@@ -38,7 +38,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form id="login-form" action="cadevento.html" name="loginForm" ng-controller="iPartyControllers" role="form" style="display: block;">
+                                    <form id="login-form"  name="loginForm" ng-controller="iPartyControllers" ng-submit="vm.login()" role="form" style="display: block;">
                                         <div class="form-group">
                                             <input type="text" name="username" id="username" ng-model="loginForm.user" tabindex="1" class="form-control login-input-group" placeholder="Usuario" value="">
                                         </div>
