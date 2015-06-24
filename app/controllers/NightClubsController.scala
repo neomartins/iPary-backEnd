@@ -64,7 +64,7 @@ object NightClubsController extends Controller{
     )
   }
 
-  def delete(email: String) = Action(parse.json) { implicit request =>
+  def delete(email: String) = Action(parse.empty) { implicit request =>
     NightClubs delete(email) match {
       case 1 => Ok
       case _ => NotFound("There is no driver with the given id")

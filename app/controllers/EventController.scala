@@ -20,7 +20,7 @@ object EventController extends Controller {
   val eventForm = Form(
     mapping(
       "name" -> text,
-      "date" -> sqlDate,
+      "date" -> sqlDate("dd/MM/yyyy"),
       "clientMax" -> number,
       "maleTicket" ->  number,
       "femaleTicket" -> number,
@@ -56,13 +56,13 @@ object EventController extends Controller {
       (model: Event) => {
         Events update(model) match {
           case 1 => Ok
-          case _ => BadRequest
+          case _ => NotFound("There is no event with the given id")
         }
       }
     )
   }
 
-  def delete(name: String) = Action(parse.json) { implicit request =>
+  def delete(name: String) = Action(parse.empty) { implicit request =>
     Events delete(name) match {
       case 1 => Ok
       case _ => NotFound("There is no event with the given id")

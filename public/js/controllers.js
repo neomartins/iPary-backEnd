@@ -6,32 +6,61 @@ var blogControllers = angular.module('blogControllers', []);
 var loginController = angular.module('loginController', []);
 var formController = angular.module('formController', []);
 
+blogControllers.controller('EventListCtrl', ['$scope', 'EventsFactory', 'EventFactory', '$location',
+    function ($scope, EventsFactory, EventFactory, $location) {
 
+        // callback for ng-click 'editUser':
+        $scope.editUser = function (name) {
+            $location.path('/event-detail/' + name);
+        };
 
-blogControllers.controller('BlogCtrl', ['$scope', 'BlogList',
-    function BlogCtrl($scope, BlogList) {
-        $scope.blogList = [];
-        BlogList.get({},
-                function success(response) {
-                    //alert($scope.challenge.question);
-                    console.log("Success:" + JSON.stringify(response));
-                    $scope.blogList = response;
+        // callback for ng-click 'deleteUser':
+        $scope.deleteUser = function (name) {
+            EventFactory.delete({ name: name });
+            $scope.events = EventsFactory.query();
+        };
 
-                },
-                function error(errorResponse) {
-                    console.log("Error:" + JSON.stringify(errorResponse));
-                }
-        );
+        // callback for ng-click 'createUser':
+        $scope.createNewUser = function () {
+            $location.path('/event-creation');
+        };
 
-
+        $scope.events = EventsFactory.query();
     }]);
 
-blogControllers.controller('BlogViewCtrl', ['$scope', '$routeParams', 'BlogPost',
-    function BlogViewCtrl($scope, $routeParams, BlogPost) {
-        var blogId = $routeParams.id;
-        $scope.blg = 1;
 
+blogControllers.controller('EventDetailCtrl', ['$scope', '$routeParams', 'EventFactory', '$location',
+    function ($scope, $routeParams, EventFactory, $location) {
+
+        // callback for ng-click 'updateUser':
+        $scope.updateUser = function () {
+            EventFactory.update($scope.event);
+            $location.path('/event-list');
+        };
+
+        // callback for ng-click 'cancel':
+        $scope.cancel = function () {
+            $location.path('/event-list');
+        };
+
+        $scope.event = EventFactory.show({id: $routeParams.id});
     }]);
+
+blogControllers.controller('EventCreationCtrl', ['$scope', 'EventsFactory', '$location',
+    function ($scope, EventsFactory, $location) {
+
+        // callback for ng-click 'createNewUser':
+        $scope.createNewUser = function () {
+        console.log("Error:" + JSON.stringify($scope.event));
+            EventsFactory.create(JSON.stringify($scope.event));
+            $location.path('/event-list');
+        }
+         // callback for ng-click 'cancel':
+             $scope.cancel = function () {
+             $location.path('/event-list');
+         };
+    }]);
+
 
 loginController.controller('LoginCtrl', ['$scope', '$location' , '$routeParams', 'NightClubLogin',
     function LoginCtrl($scope, $location, $routeParams, NightClubLogin) {

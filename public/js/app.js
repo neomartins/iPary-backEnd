@@ -20,8 +20,12 @@ blogApp.config(['$routeProvider', '$locationProvider',
                     controller: 'LoginCtrl'
                 }).when('/menu', {
                     templateUrl: 'partials/blogPost.html',
-                    controller: 'BlogViewCtrl'
+                    controller: 'EventListCtrl'
                 });
+
+                $routeProvider.when('/event-list', {templateUrl: 'partials/event-list.html', controller: 'EventListCtrl'});
+                $routeProvider.when('/event-detail/:name', {templateUrl: 'partials/event-detail.html', controller: 'EventDetailCtrl'});
+                $routeProvider.when('/event-creation', {templateUrl: 'partials/event-creation.html', controller: 'EventCreationCtrl'});
 
         $locationProvider.html5Mode(false).hashPrefix('!');
     }]);
