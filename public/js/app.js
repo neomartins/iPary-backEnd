@@ -10,7 +10,7 @@ var iPartyApp = angular.module('iPartyApp', [
 ]);
 
 
-iPartyApp.config(['$routeProvider', '$locationProvider',
+/*iPartyApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         /*$routeProvider.
                 when('/', {
@@ -22,7 +22,7 @@ iPartyApp.config(['$routeProvider', '$locationProvider',
                 });*/
 
         $locationProvider.html5Mode(false).hashPrefix('!');
-    }]);
+    }]);*/
 
 
 /*
