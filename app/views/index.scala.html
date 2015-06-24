@@ -1,48 +1,43 @@
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>iParty</title>
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("img/favicon.png")">
+<!DOCTYPE html>
 
-        <!--Bootstrap CSS-->
-        <link rel="stylesheet" href="@routes.Assets.versioned("css/stylesheets/bootstrap.css")">
+<html lang="en" ng-app="blogApp">
 
-        <!--Caracteres OpenSans-->
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'/>
+<head>
 
-        <!--Screen-->
-        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("css/stylesheets/screen.css")"/>
+    <title>iParty</title>
 
-        <!--Responsive CSS-->
-        <link rel="stylesheet" type="text/css" href="@routes.Assets.versioned("css/stylesheets/responsive.css")"/>
 
-        <!--AngularJS-->
-        <script src='@routes.Assets.versioned("js/libs/angular.min.js")' type="text/javascript"></script>
-        <script src='@routes.Assets.versioned("js/libs/angular-resource.min.js")' type="text/javascript"></script>
-        <script src='@routes.Assets.versioned("js/libs/angular-route.min.js")' type="text/javascript"></script>
-        <script src='@routes.Assets.versioned("js/libs/jquery-1.10.2.min.js")' type="text/javascript"></script>
-        <script src='@routes.Assets.versioned("js/libs/bootstrap.min.js")' type="text/javascript"></script>
-        <script src='@routes.Assets.versioned("js/loginController.js")' type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    </head>
-    <body>
-        <div data-ng-app="myApp">
-            <script type="text/javascript">
-              var app = angular.module('myApp', []);
-              </script>
-            <div data-ng-controller="loginController">
-                <form name="form" ng-submit="doLogin(email,pass)" role="form">
-                    <input type="text" name="email" id="email" class="form-control" ng-model="email" required />
-                    <input type="password" name="pass" id="pass" class="form-control" ng-model="pass" required />
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-                <ul>
-                    <li data-ng-repeat="result in results">
-                        {{ result }}
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </body>
-</html>
+    <link rel="stylesheet" href='@routes.Assets.versioned("css/stylesheets/bootstrap.css")'  media="screen"/>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" type="text/css" href='@routes.Assets.versioned("css/stylesheets/screen.css")' />
+
+
+    <link rel="stylesheet" type="text/css" href="css/stylesheets/responsive.css"/>
+
+    <script src='@routes.Assets.versioned("js/libs/jquery-1.10.2.min.js")' ></script>
+    <script src='@routes.Assets.versioned("js/libs/angular.min.js")' ></script>
+    <script src='@routes.Assets.versioned("js/libs/angular-route.min.js")' ></script>
+    <script src='@routes.Assets.versioned("js/libs/angular-resource.min.js")' ></script>
+    <script src='@routes.Assets.versioned("js/libs/angular-cookies.min.js")' ></script>
+    <script src='@routes.Assets.versioned("js/app.js")' ></script>
+    <script src='@routes.Assets.versioned("js/controllers.js")' ></script>
+    <script src='@routes.Assets.versioned("js/services.js")' ></script>
+
+
+    <script type="text/javascript" src='@routes.Assets.versioned("js/jquery.validate.js")'></script>
+
+    <script type="text/javascript" src='@routes.Assets.versioned("js/jquery.mask.js")'></script>
+
+    <script type="text/javascript" src='@routes.Assets.versioned("js/main.js")'></script>
+
+</head>
+
+<body class="body-img">
+<div ng-view  id="container" class="container"></div>
+</body>
+
+</html> 

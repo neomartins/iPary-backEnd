@@ -23,7 +23,7 @@ class NightClubs(tag: Tag) extends Table[NightClub](tag,"night_club"){
   def email = column[String]("email", O.PrimaryKey)
   def cnpj = column[String]("cnpj", O.NotNull)
   def password = column[String]("password", O.NotNull)
-  def clubName = column[String]("clubName", O.NotNull)
+  def clubName = column[String]("club_name", O.NotNull)
   def telephone = column[String]("telephone")
   def cep = column[String]("cep", O.NotNull)
   def city = column[String]("city", O.NotNull)

@@ -2,49 +2,28 @@
 
 /* App Module */
 
-var iPartyApp = angular.module('iPartyApp', [
-    'ngRoute',     
-    'iPartyControllers',
-    'iPartyServices'
-    
+var blogApp = angular.module('blogApp', [
+    'ngRoute',
+    'blogControllers',
+    'loginController',
+    'formController',
+    'blogServices'
+
 ]);
 
 
-/*iPartyApp.config(['$routeProvider', '$locationProvider',
+blogApp.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
-        /*$routeProvider.
+        $routeProvider.
                 when('/', {
                     templateUrl: 'partials/main.html',
-                    controller: 'iPartyCtrl'
-                }).when('/iPartyPost/:id', {
-                    templateUrl: 'partials/iPartyPost.html',
-                    controller: 'iPartyViewCtrl'
-                });*/
+                    controller: 'LoginCtrl'
+                }).when('/menu', {
+                    templateUrl: 'partials/blogPost.html',
+                    controller: 'BlogViewCtrl'
+                });
 
         $locationProvider.html5Mode(false).hashPrefix('!');
-    }]);*/
+    }]);
 
 
-/*
-helloWorldApp.config(['$routeProvider', '$locationProvider',
-function($routeProvider, $locationProvider) {
-  $routeProvider.
-  when('/', {
-    templateUrl: 'partials/main.html',
-    controller: 'MainCtrl'
-  }).when('/show', {
-    templateUrl: 'partials/show.html',
-    controller: 'ShowCtrl'
-  }).when('/customer', {
-    templateUrl: 'partials/customer.html',
-    controller: 'CustomerCtrl'
-  }).when('/addCustomer', {
-    templateUrl: 'partials/newCustomer.html',
-    controller: 'AddCustomerCtrl'
-  }).when('/addedCustomer/:customer/:city', {
-    templateUrl: 'partials/addedCustomer.html',
-    controller: 'AddedCustomerCtrl'
-  });
-
-  $locationProvider.html5Mode(false).hashPrefix('!');
-}]);*/

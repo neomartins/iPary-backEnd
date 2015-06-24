@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    	
+    <meta charset="utf-8">
+    
+    <title>iParty - Admin Summary</title>
+ 	
+	<!--Bootstrap CSS-->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheets/bootstrap.css"/>
+    
+    <!--Caracteres OpenSans-->	
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'/>
+	
+	<link rel="stylesheet" href="fonts/font-awesome-4.3.0/css/font-awesome.css"/>
+  
+	<!--Screen-->
+    <link rel="stylesheet" type="text/css" href="css/stylesheets/screen.css"/>
+    
+    <!--Responsive CSS-->
+    <link rel="stylesheet" type="text/css" href="css/stylesheets/responsive.css"/>
+
+</head>
+    
+<body>
+
+<div class="container-fluid">
+     <!--HEADER FIXADO NO TOPO-->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!--MENU PARA MOBILE-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">iParty</a>
+            </div>
+            <!--MENU DO USUARIO-->
+            <ul class="nav navbar-right top-nav">
+                <!--ALERTA DA AGENDA-->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu alert-dropdown">
+                        <li>
+                            <a href="#">Alerta de Evento <span class="label label-default">Alert Badge</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <!--OPÇÕES DO USUARIO-->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Bruno Lopes <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="perfil.html"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Menssagens</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Opções</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!--BARRA LATERAL ESQUERDA-->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                  
+                   <li>
+                       <a href="index.html">Resumo</a>
+                   </li>                   
+                   <li><a href="agenda.html"><i class="fa fa-calendar"></i> Agenda</a></li>
+                   <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-caret-square-o-down"></i> Eventos<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li class="active">
+                                <a href="cadevento.html">Novo</a>
+                            </li>
+                            <li class="active">
+                                <a href="listevento.html">Eventos Cadastrados</a>
+                            </li>                               
+                            <li>
+                                <a href="#">Divulgação</a>
+                            </li>
+                            <li>
+                                <a href="#">Cardápio</a>
+                            </li>
+                            <li>
+                                <a href="#">Pessoas Confirmadas</a>
+                            </li>
+                        </ul>
+                    </li>
+                   
+                    <li class="active">
+                        <a href="sac.html"><i class="fa fa-phone"></i> SAC</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <!--CONTEUDO DA PAGINA-->
+    <div class="container-fluid conteudo-container">
+        <div class="row">
+           <!--Resumo-->
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>SAC</h2>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th width="50%">Nome</th>
+                                        <th width="25%">E-mail</th>
+                                        <th width="15%">Telefone</th>
+                                        <th width="10%">Sobre</th>
+                                        <th width="10%">Vizualizar/Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Felipe Moreno</td>
+                                        <td>felipe@moreno.com</td>
+                                        <td>(19)8595-4569</td>
+                                        <td>Reclamção</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="...">
+                                                <a href="sac-detalhe.html"><input type="button" class="btn btn-info" value="&#xf06e"></a>
+                                                <a href=""><input type="button" class="btn btn-danger" value="&#xf00d"></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Augusto Cesar</td>
+                                        <td>guto@augusto.com</td>
+                                        <td>(19)8595-4569</td>
+                                        <td>Elogio</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="...">
+                                                <a href=""><input type="button" class="btn btn-info" value="&#xf06e"></a>
+                                                <a href=""><input type="button" class="btn btn-danger" value="&#xf00d"></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gustavo Martins</td>
+                                        <td>neo@gustavo.com</td>
+                                        <td>(19)8565-8963</td>
+                                        <td>Sugestão</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="...">
+                                                <a href=""><input type="button" class="btn btn-info" value="&#xf06e"></a>
+                                                <a href=""><input type="button" class="btn btn-danger" value="&#xf00d"></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--------Scripts-------->
+<!--Jquery-->
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+
+<!--Bootstrap JS-->
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<!--Main-->
+<script type="text/javascript" src="js/main.js"></script>
+	
+</body>
+    
+</html>
