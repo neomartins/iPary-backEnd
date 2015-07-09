@@ -51,7 +51,6 @@ blogControllers.controller('EventCreationCtrl', ['$scope', 'EventsFactory', '$lo
 
         // callback for ng-click 'createNewUser':
         $scope.createNewUser = function () {
-        console.log("Error:" + JSON.stringify($scope.event));
             EventsFactory.create(JSON.stringify($scope.event));
             $location.path('/event-list');
         }
@@ -97,7 +96,9 @@ formController.controller('FormCtrl',
         };
         $scope.submit = function() {
             console.log("posting data...." +  JSON.stringify($scope.form));
-            $http.put('http://localhost:9000/nightclub', JSON.stringify($scope.form)).success(function(){/*success callback*/});
+            $http.put('http://localhost:9000/nightclub', JSON.stringify($scope.form)).success(function(){
+            $location.path('/menu');
+            });
         };
 });
 
