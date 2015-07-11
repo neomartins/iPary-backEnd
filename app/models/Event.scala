@@ -11,6 +11,8 @@ import play.api.data.Forms._
  * Created by henrique on 23/06/15.
  */
 case class Event(
+                      id: Option[Int] = None,
+                      cnpj: String,
                       name: String,
                       date : Date,
                       clientMax: Int,
@@ -20,7 +22,9 @@ case class Event(
                       style :  Option[String] = None)
 
 class Events(tag: Tag) extends Table[Event](tag,"event"){
-  def name = column[String]("name", O.PrimaryKey)
+  def id = column[Int]("id", O.PrimaryKey , O.AutoInc)
+  def cnpj = column[String]("cnpj", O.PrimaryKey )
+  def name = column[String]("name", O.NotNull)
   def date = column[Date]("event_date", O.NotNull)
   def clientMax = column[Int]("clientMax", O.NotNull)
   def maleTicket = column[Int]("maleTicket", O.NotNull)
@@ -28,7 +32,9 @@ class Events(tag: Tag) extends Table[Event](tag,"event"){
   def description = column[String]("description")
   def style = column[String]("style")
 
-  def * = (name, date, clientMax, maleTicket, femaleTicket, description.?, style.?) <> (Event.tupled, Event.unapply)
+  def * = (id.?, cnpj, name, date, clientMax, maleTicket, femaleTicket, description.?, style.?) <> (Event.tupled, Event.unapply)
+
+  def nightClub = foreignKey("cnpj",cnpj,NightClubs.nightclubs)(_.cnpj)
 }
 
 object Events {
@@ -37,11 +43,8 @@ object Events {
   def all: List[Event] = db.withSession { implicit session =>
     events.sortBy(_.name.asc).list
   }
-  def create(event: Event): Boolean = db.withTransaction{ implicit session =>
-    if (!events.filter(_.name === event.name).exists.run) {
+  def create(event: Event) = db.withTransaction{ implicit session =>
       events += event
-      true
-    } else {false}
   }
   def find(name: String): Event = db.withSession{ implicit session =>
     events.filter(_.name === name).first

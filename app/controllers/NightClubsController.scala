@@ -18,8 +18,8 @@ object NightClubsController extends Controller{
 
   val nightClubForm = Form(
     mapping(
-      "email" -> text,
       "cnpj" -> text,
+      "email" -> text,
       "password" -> text,
       "clubName" ->  text,
       "telephone" -> optional(text),
@@ -46,9 +46,9 @@ object NightClubsController extends Controller{
   }
 
   def find(email: String, pass: String) = Action(parse.empty) { implicit request =>
-    NightClubs find(email,pass) match {
+    NightClubs findByEmail (email,pass) match {
       case club => Ok(Json.toJson(club))
-      case _ => NotFound("There is no driver with the given id")
+      case _ => NotFound("There is no NightClub with the given cnpj")
     }
   }
 
@@ -56,7 +56,7 @@ object NightClubsController extends Controller{
     nightClubForm.bindFromRequest.fold(
       formWithErrors => BadRequest(formWithErrors.errorsAsJson),
       (model: NightClub) => {
-        NightClubs update(model) match {
+        NightClubs update (model) match {
           case 1 => Ok
           case _ => BadRequest
         }
@@ -65,9 +65,9 @@ object NightClubsController extends Controller{
   }
 
   def delete(email: String) = Action(parse.empty) { implicit request =>
-    NightClubs delete(email) match {
+    NightClubs delete (email) match {
       case 1 => Ok
-      case _ => NotFound("There is no driver with the given id")
+      case _ => NotFound("There is no NightClub with the given cnpj")
     }
   }
 

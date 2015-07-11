@@ -19,6 +19,8 @@ object EventController extends Controller {
 
   val eventForm = Form(
     mapping(
+      "id" -> optional(number),
+      "cnpj" -> text,
       "name" -> text,
       "date" -> sqlDate("dd/MM/yyyy"),
       "clientMax" -> number,
@@ -36,7 +38,7 @@ object EventController extends Controller {
       formWithErrors => BadRequest(formWithErrors.errorsAsJson),
       (model: Event) => {
         Events create(model) match {
-          case true => Ok
+          case 1 => Ok
           case _ => BadRequest
         }
       }

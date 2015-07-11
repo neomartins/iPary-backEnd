@@ -9,8 +9,8 @@ import play.api.data.Forms._
  */
 
 case class NightClub(
-                 email: String,
                  cnpj : String,
+                 email: String,
                  password: String,
                  clubName: String,
                  telephone: Option[String] = None,
@@ -20,8 +20,8 @@ case class NightClub(
                  address : String)
 
 class NightClubs(tag: Tag) extends Table[NightClub](tag,"night_club"){
-  def email = column[String]("email", O.PrimaryKey)
-  def cnpj = column[String]("cnpj", O.NotNull)
+  def cnpj = column[String]("cnpj", O.PrimaryKey)
+  def email = column[String]("email", O.NotNull)
   def password = column[String]("password", O.NotNull)
   def clubName = column[String]("club_name", O.NotNull)
   def telephone = column[String]("telephone")
@@ -30,7 +30,7 @@ class NightClubs(tag: Tag) extends Table[NightClub](tag,"night_club"){
   def state = column[String]("state", O.NotNull)
   def address = column[String]("address", O.NotNull)
 
-  def * = (email, cnpj, password, clubName, telephone.?, cep, city, state, address) <> (NightClub.tupled, NightClub.unapply)
+  def * = (cnpj, email, password, clubName, telephone.?, cep, city, state, address) <> (NightClub.tupled, NightClub.unapply)
 }
 
 object NightClubs {
@@ -40,18 +40,21 @@ object NightClubs {
     nightclubs.sortBy(_.email.asc).list
   }
   def create(newClub: NightClub): Boolean = db.withTransaction{ implicit session =>
-    if (!nightclubs.filter(_.email === newClub.email).exists.run) {
+    if (!nightclubs.filter(_.cnpj === newClub.cnpj).exists.run) {
       nightclubs += newClub
       true
     } else {false}
   }
-  def find(emailId: String, pass: String): NightClub = db.withSession{ implicit session =>
+  def findByEmail(emailId: String, pass: String): NightClub = db.withSession{ implicit session =>
     nightclubs.filter(_.email === emailId).filter(_.password === pass).first
   }
-  def update(updateNightCLub: NightClub): Int = db.withTransaction{ implicit session =>
-    nightclubs.filter(_.email === updateNightCLub.email).update(updateNightCLub)
+  def find(cnpj: String): NightClub = db.withSession{ implicit session =>
+    nightclubs.filter(_.cnpj === cnpj).first
   }
-  def delete(email: String): Int = db.withTransaction{ implicit session =>
-    nightclubs.filter(_.email === email).delete
+  def update(updateNightCLub: NightClub): Int = db.withTransaction{ implicit session =>
+    nightclubs.filter(_.cnpj === updateNightCLub.cnpj).update(updateNightCLub)
+  }
+  def delete(cnpj: String): Int = db.withTransaction{ implicit session =>
+    nightclubs.filter(_.cnpj === cnpj).delete
   }
 }

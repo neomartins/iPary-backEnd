@@ -2,7 +2,7 @@
 
 /* App Module */
 
-var blogApp = angular.module('blogApp', [
+var app = angular.module('app', [
     'ngRoute',
     'blogControllers',
     'loginController',
@@ -12,7 +12,7 @@ var blogApp = angular.module('blogApp', [
 ]);
 
 
-blogApp.config(['$routeProvider', '$locationProvider',
+app.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         $routeProvider.
                 when('/', {
