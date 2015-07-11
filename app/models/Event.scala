@@ -1,8 +1,6 @@
 package models
 
 import java.sql.Date
-
-import scala.slick.driver.PostgresDriver
 import scala.slick.driver.PostgresDriver.simple._
 import play.api.Play.current
 import play.api.data.Forms._
