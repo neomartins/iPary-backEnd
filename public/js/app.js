@@ -24,7 +24,7 @@ app.config(['$routeProvider', '$locationProvider',
                 });
 
                 $routeProvider.when('/event-list', {templateUrl: 'partials/event-list.html', controller: 'EventListCtrl'});
-                $routeProvider.when('/event-detail/:name', {templateUrl: 'partials/event-detail.html', controller: 'EventDetailCtrl'});
+                $routeProvider.when('/event-detail', {templateUrl: 'partials/event-detail.html', controller: 'EventDetailCtrl'});
                 $routeProvider.when('/event-creation', {templateUrl: 'partials/event-creation.html', controller: 'EventCreationCtrl'});
 
         $locationProvider.html5Mode(false).hashPrefix('!');

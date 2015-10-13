@@ -8,10 +8,11 @@ var formController = angular.module('formController', []);
 
 blogControllers.controller('EventListCtrl', ['$scope', 'EventsFactory', 'EventFactory', '$location',
     function ($scope, EventsFactory, EventFactory, $location) {
-
+        $scope.event = null;
         // callback for ng-click 'editUser':
         $scope.editUser = function (name) {
-            $location.path('/event-detail/' + name);
+            $scope.event = EventFactory.show({ name: name });
+            $location.path('/event-detail');
         };
 
         // callback for ng-click 'deleteUser':
@@ -51,7 +52,6 @@ blogControllers.controller('EventCreationCtrl', ['$scope', 'EventsFactory', '$lo
 
         // callback for ng-click 'createNewUser':
         $scope.createNewUser = function () {
-            console.log(JSON.stringify($scope.event));
             EventsFactory.create(JSON.stringify($scope.event));
             $location.path('/event-list');
         }
