@@ -51,6 +51,7 @@ blogControllers.controller('EventCreationCtrl', ['$scope', 'EventsFactory', '$lo
 
         // callback for ng-click 'createNewUser':
         $scope.createNewUser = function () {
+            console.log(JSON.stringify($scope.event));
             EventsFactory.create(JSON.stringify($scope.event));
             $location.path('/event-list');
         }

@@ -10,7 +10,7 @@ import play.api.data.Forms._
  */
 case class Event(
                       id: Option[Int] = None,
-                      cnpj: String,
+                      cnpj:  Option[String] = None,
                       name: String,
                       date : Date,
                       clientMax: Int,
@@ -21,7 +21,7 @@ case class Event(
 
 class Events(tag: Tag) extends Table[Event](tag,"event"){
   def id = column[Int]("id", O.PrimaryKey , O.AutoInc)
-  def cnpj = column[String]("cnpj", O.PrimaryKey )
+  def cnpj = column[String]("cnpj", O.NotNull )
   def name = column[String]("name", O.NotNull)
   def date = column[Date]("event_date", O.NotNull)
   def clientMax = column[Int]("clientMax", O.NotNull)
@@ -30,7 +30,7 @@ class Events(tag: Tag) extends Table[Event](tag,"event"){
   def description = column[String]("description")
   def style = column[String]("style")
 
-  def * = (id.?, cnpj, name, date, clientMax, maleTicket, femaleTicket, description.?, style.?) <> (Event.tupled, Event.unapply)
+  def * = (id.?, cnpj.?, name, date, clientMax, maleTicket, femaleTicket, description.?, style.?) <> (Event.tupled, Event.unapply)
 
   def nightClub = foreignKey("cnpj",cnpj,NightClubs.nightclubs)(_.cnpj)
 }

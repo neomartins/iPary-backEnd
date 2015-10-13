@@ -20,7 +20,7 @@ object EventController extends Controller {
   val eventForm = Form(
     mapping(
       "id" -> optional(number),
-      "cnpj" -> text,
+      "cnpj" -> optional(text),
       "name" -> text,
       "date" -> sqlDate("dd/MM/yyyy"),
       "clientMax" -> number,
